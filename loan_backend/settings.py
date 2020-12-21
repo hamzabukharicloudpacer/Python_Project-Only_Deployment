@@ -40,13 +40,15 @@ INSTALLED_APPS = [
     'django_filters',
     'loan_backend.user_auth',
     'loan_backend.users',
-    'loan_backend.loans'
+    'loan_backend.loans',
+    'debug_toolbar'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -160,3 +162,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+    '10.0.2.2'
+]
