@@ -1,5 +1,6 @@
 # virtual environments
 venv
+.vagrant
 
 # python files
 __pycache__
