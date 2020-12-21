@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'loans',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
+        'HOST': '10.0.2.2',
         'PORT': '3306'
     }
 }
