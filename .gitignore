@@ -1,0 +1,8 @@
+# virtual environments
+venv
+
+# python files
+__pycache__
+
+# ideas
+.idea
