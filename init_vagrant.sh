@@ -17,8 +17,8 @@ sudo -u vagrant virtualenv -p /usr/bin/python3 ${VIRTUAL_ENV_DIR}
 ${VIRTUAL_ENV_DIR}/bin/pip install -r ${PROJ_ROOT_DIR}/requirements.txt
 
 echo "alias runserver=\"${MANAGEMENT_COMMANDS_PREFIX} runserver 0.0.0.0:8000\"" >>${VAGRANT_BASH}
-echo "alias makemigrations=\"${MANAGEMENT_COMMANDS_PREFIX} makemigrations\""${VAGRANT_BASH}
-echo "alias migrate=\"${MANAGEMENT_COMMANDS_PREFIX} migrate\""${VAGRANT_BASH}
+echo "alias makemigrations=\"${MANAGEMENT_COMMANDS_PREFIX} makemigrations\"" >>${VAGRANT_BASH}
+echo "alias migrate=\"${MANAGEMENT_COMMANDS_PREFIX} migrate\"" >>${VAGRANT_BASH}
 
 echo "cd ${PROJ_ROOT_DIR}" >>${VAGRANT_BASH}
 echo "source ${VIRTUAL_ENV_DIR}/bin/activate" >>${VAGRANT_BASH}
