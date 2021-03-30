@@ -12,6 +12,19 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 
+import environ
+
+env = environ.Env()
+
+READ_FROM_DOT_ENV = env.bool('READ_ENV_FILE', default=True)
+
+ROOT_DIR = environ.Path(__file__) - 2
+
+if READ_FROM_DOT_ENV:
+    env_file = str(ROOT_DIR.path('.env'))
+    print(f'Loading environment variables from {env_file}')
+    env.read_env(env_file)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -81,14 +94,7 @@ WSGI_APPLICATION = 'loan_backend.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'loans',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '10.0.2.2',
-        'PORT': '3306'
-    }
+    'default': env.db('DATABASE_URL', default='sqlite:///loans.sqlite3')
 }
 
 # Password validation
