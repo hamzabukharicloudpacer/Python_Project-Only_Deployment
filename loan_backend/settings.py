@@ -37,7 +37,7 @@ SECRET_KEY = '3$n$7h4eedh6gaf!253*md1cfz-j@db^o&)q**%8iaf9&b7mft'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
 
 # Application definition
 
@@ -155,10 +155,10 @@ REST_FRAMEWORK = {
 # Django CORS Settings
 # https://pypi.org/project/django-cors-headers/
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:4200',
-    'http://127.0.0.1:4200'
-]
+CORS_ALLOWED_ORIGINS = env.list(
+    'CORS_ALLOWED_ORIGINS',
+    default=['http://localhost:4200', 'http://127.0.0.1:4200']
+)
 
 # Django Email Settings
 # https://docs.djangoproject.com/en/3.1/topics/email/
